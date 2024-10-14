@@ -1,4 +1,5 @@
 import { Button, TextField } from '@mui/material'
+import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,15 +12,17 @@ const Login = () => {
     let updateUser=(e)=>{
         setUser({...user,[e.target.name]: e.target.value})
     }
-    let sendData=()=>{                                            //check credentials
+    let sendData=(event)=>{                                            //check credentials
        if((user.username=="admin")&&(user.password=="1234"))  
         {
           sessionStorage.setItem('username','admin');//store username value in sessionstorage set item
           navigate('/home');
           localStorage.setItem('username','admin');  
         }                      
-       else alert("Invalid credentials")
-    }
+       else{ alert("Invalid credentials")
+     }
+  }
+  
   return (
     <>
       <div> <h2>Login</h2></div> <br/>
