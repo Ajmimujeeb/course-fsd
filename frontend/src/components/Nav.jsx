@@ -27,7 +27,7 @@ const Nav = () => {
         </Typography>
         <Link to={'/'}><Button sx={{ color: '#181C14', border: 1}}>Home</Button></Link>
         <Link to={'/add'}><Button sx={{ color: '#181C14', border: 1, margin: 2}}>ADD</Button></Link>
-        <Link to={'/login'}><Button sx={{ color: '#181C14', border: 1, margin: 2}}>Login</Button></Link>
+    
       </Toolbar>
     </AppBar>
   </Box>  <br /><br />

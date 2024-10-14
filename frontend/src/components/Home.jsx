@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -27,7 +28,11 @@ const Home = () => {
        console.log(error)
     })
   }
-
+  const navigate=useNavigate()
+  function updateCourse(course){
+  navigate('/add',{state:{course}})  //here we click update it load to add||state is map to course to we use add location state=course._id
+  }
+const user=localStorage.getItem('username');
 // const courses=[
 //   {
 //     courseId: "101",
@@ -58,6 +63,7 @@ const Home = () => {
 
   return (
     <div><br /><br /><br />
+    <h4>Welcome {user}</h4>
     <Grid container spacing={2} >
       {course.map((item) => (
         <Grid item xs={12} sm={6} md={4} key={item.courseId}>
@@ -81,7 +87,7 @@ const Home = () => {
                 <strong>Fee:</strong> {item.courseFee}
               </Typography>
               <Typography><br />
-                <Button sx={{backgroundColor:'#C62E2E',color:'white'}}>Edit</Button> <br/>
+                <Button sx={{backgroundColor:'#C62E2E',color:'white'}} onClick={()=>updateCourse(item)}>Edit</Button> <br/> 
                 <br/>
                 <Button sx={{backgroundColor:'black',color:'white'}} onClick={()=>deleteCourse(item._id)}>Delete</Button>
               </Typography>

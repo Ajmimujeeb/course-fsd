@@ -15,7 +15,7 @@ const Login = () => {
        if((user.username=="admin")&&(user.password=="1234"))  
         {
           sessionStorage.setItem('username','admin');//store username value in sessionstorage set item
-          navigate('/dashboard');
+          navigate('/home');
           localStorage.setItem('username','admin');  
         }                      
        else alert("Invalid credentials")
